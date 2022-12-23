@@ -1,0 +1,43 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport"
+        content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<body>
+<div id="body"></div>
+<style>
+  body {
+    background-color: #ddd;
+    /*width: 95%;*/
+  }
+</style>
+
+<script>
+  const textArray = ["⭐", "❤️", "😍", "😘", "🤣", "😂", "😁", "😅", "🤪", "🤑"]
+  const fja = () => {
+    if (body.clientHeight > window.innerHeight-50) {
+      body.innerHTML = '';
+    }
+    if (body.clientWidth > window.innerWidth) {
+      body.innerHTML += '<br>';
+    }
+    const randomNumber = Math.floor(Math.random() * textArray.length);
+    const randomTextFromTextArray = textArray[randomNumber];
+    body.innerHTML += randomTextFromTextArray;
+
+  };
+  const interval = setInterval(fja, 1)
+
+  function clrint() {
+    clearInterval(interval)
+    body.innerHTML = "interval cleared";
+  }
+  setTimeout(clrint, 2000)
+
+</script>
+</body>
+</html>
