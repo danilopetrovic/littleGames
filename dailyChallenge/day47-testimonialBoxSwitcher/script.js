@@ -1,9 +1,3 @@
-const testimonialContainer = document.querySelector('.testimonial-container');
-const testimonial = document.querySelector('.testimonial');
-const userImage = document.querySelector('.user-image');
-const username = document.querySelector('.username');
-const role = document.querySelector('.role');
-
 const testimonials = [
     {
         name: 'Miyah Myles',
@@ -61,6 +55,34 @@ const testimonials = [
 let idx = 1;
 
 function updateTestimonial() {
+    const testimonialContainer = document.querySelector('.testimonial-container');
+
+    testimonialContainer.remove();
+
+    const newTestimonialContainer = document.createElement('div');
+    newTestimonialContainer.classList.add('testimonial-container');
+    newTestimonialContainer.innerHTML = `
+    <div class="progress-bar"></div>
+    <div class="fas fa-quote-right fa-quote"></div>
+    <div class="fas fa-quote-left fa-quote"></div>
+    <p class="testimonial"></p>
+    <div class="user">
+        <img src="" alt="user" class="user-image"/>
+        <div class="user-details">
+            <h4 class="username"></h4>
+            <p class="role"></p>
+        </div>
+    </div>
+    `;
+
+    document.querySelector('body').appendChild(newTestimonialContainer);
+
+    const testimonial = document.querySelector('.testimonial');
+    const userImage = document.querySelector('.user-image');
+    const username = document.querySelector('.username');
+    const role = document.querySelector('.role');
+
+
     const {name, position, photo, text} = testimonials[idx];
 
     testimonial.innerHTML = text;
