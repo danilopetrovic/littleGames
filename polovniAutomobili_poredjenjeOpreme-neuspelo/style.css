@@ -2,26 +2,36 @@
     display: grid;
     grid-template-columns: repeat(2, 1fr);
 }
+
 #submitButton {
     margin: 30px 50px;
     padding: 2rem 8rem;
     outline: none;
 }
+
 ul {
     display: flex;
     flex-wrap: wrap;
     gap: 1rem;
 }
+
 li {
     list-style: none;
     text-decoration: underline;
 }
+
 h3, h4 {
     margin: 5px auto;
 }
+
 .text-area {
     display: flex;
 }
+
 #ista_oprema {
     color: red;
+}
+
+iframe {
+    /*display: none;*/
 }
