@@ -1,6 +1,7 @@
 /*
-* TODO Treba napraviti php skriptu koja uzima ajaxom link sa polovniAutomobili i vraca HTML...
-*  */
+* TODO:
+*  Napraviti u PHP-u API koji prima link i obradjuje ga tako sto vraca samo sliku i nizove opreme koje posle obradis u js-u
+*/
 
 /*
 let niz1 = [];
@@ -34,8 +35,6 @@ const ispisiHtmlZaUl = (opremaUlId, niz) => {
 };
 */
 
-
-
 const iframeDiv1 = document.getElementById('iframeDiv1');
 const iframeDiv2 = document.getElementById('iframeDiv2');
 
@@ -47,20 +46,30 @@ const link2 = document.getElementById('oprema-2');
 
 link1.addEventListener('input', (e) => {
     const link = e.target.value;
-    console.log(link);
-    const iframe = document.createElement('iframe');
-    iframe.id = 'externalPage1';
-    iframe.src = link;
-    iframeDiv1.innerHTML = '';
-    iframeDiv1.appendChild(iframe);
-    iframe.onload = () => {
-        console.log('aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa');
-        // console.log(this);
-        // console.log(e);
-        const pokupiSliku1 = document.querySelector('#externalPage1').ownerDocument.images[3].currentSrc;
-        // console.log(pokupiSliku1);
+    var url = 'https://api.api-ninjas.com/v1/webscraper?url=' + link;
+    var apiKey = 'K1Z/8bkCfxYbv4kEN3PcxA==LTETBGjnFT6CiTkW';
+    // console.log(link);
+    // console.log(url);
 
-    }
+    const xhr = new XMLHttpRequest();
 
+    xhr.open('GET', url, true);
+    xhr.setRequestHeader('X-Api-Key', apiKey);
+
+    xhr.onload = function () {
+        if (this.status === 200) {
+            console.log(this.response);
+            const response = JSON.parse(this.response);
+            console.log(response);
+
+            // let output = '';
+            // document.querySelector('.jokes').innerHTML = output;
+        }
+    };
+
+    xhr.onerror = function () {
+        console.error('Network error occurred');
+    };
+
+    xhr.send();
 });
-
