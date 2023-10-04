@@ -55,6 +55,7 @@ link1.addEventListener('input', (e) => {
 
     xhr.open('GET', url, true);
     xhr.setRequestHeader('X-Api-Key', apiKey);
+    // xhr.setRequestHeader('text_only', true);
 
     xhr.onload = function () {
         if (this.status === 200) {
