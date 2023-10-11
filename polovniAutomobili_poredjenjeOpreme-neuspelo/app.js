@@ -1,7 +1,12 @@
 /*
 * TODO:
 *  Napraviti u PHP-u API koji prima link i obradjuje ga tako sto vraca samo sliku i nizove opreme koje posle obradis u js-u
-*/
+*  Kreirati polje za token tako da samo onaj sa tokenom moze da koristi aplikaciju
+*  Kada ukucas token polje nestane i savuje se token u localStorage
+*  Napraviti counter tokena tako da imas lupam 1000 poziva mesecno
+*  Moze isto tako da se pamti sesija ili token zapamcen kod korisnika i u textualnom fajlu bekenda na osnovu verzije browsera $_SERVER...
+*
+* */
 
 /*
 let niz1 = [];
